@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const CountryTownCategory = require('./models/CountryTownCategory');
 
 const app = express();
@@ -19,13 +20,14 @@ mongoose
 // MIddleware
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.status(200).json(`Serveris veikia an port ${PORT}`);
 });
 
 // app.get gauti listus
-app.get('/country_town', async (req, res) => {
+app.get('/places', async (req, res) => {
   try {
     const places = await CountryTownCategory.find();
     res.json(places);
@@ -35,14 +37,14 @@ app.get('/country_town', async (req, res) => {
 });
 
 // create new country or town
-app.post('/country_town/new', (req, res) => {
+app.post('/places/new', (req, res) => {
   console.log(req.body);
 
   const newPlace = new CountryTownCategory({
-    title: 'Chile',
-    continent: 'Sounth America',
-    population: 18000000,
-    tipe: 'country',
+    title: 'Sydney',
+    continent: 'Australia',
+    population: 5.3,
+    preference: 'Country',
   });
 
   newPlace

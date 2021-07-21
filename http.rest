@@ -2,7 +2,7 @@ GET  http://localhost:4000/
 
 
 ### create new places
-POST http://localhost:4000/country_town/new
+POST http://localhost:4000/places/new
 Content-Type: application/json
 
 {
@@ -13,4 +13,4 @@ Content-Type: application/json
 ## get new places
 
 #### USERS
-GET http://localhost:4000/country_town
+GET http://localhost:4000/places
