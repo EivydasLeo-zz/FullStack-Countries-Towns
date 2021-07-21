@@ -24,6 +24,17 @@ app.get('/', (req, res) => {
   res.status(200).json(`Serveris veikia an port ${PORT}`);
 });
 
+// app.get gauti listus
+app.get('/country_town', async (req, res) => {
+  try {
+    const places = await CountryTownCategory.find();
+    res.json(places);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// create new country or town
 app.post('/country_town/new', (req, res) => {
   console.log(req.body);
 
