@@ -4,8 +4,13 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.navbar > a {
+  margin: 0 auto;
+}
+
 .navbar {
   height: 150px;
+  text-align: center;
 }
 
 li:hover {
@@ -15,4 +20,32 @@ li:hover {
 .main-container {
   background-color: tomato;
   height: 850px;
+  padding-top: 2rem;
+}
+
+/* NewPlaces */
+
+.NewPlaces__Container {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  border: 1px solid black;
+  padding-top: 1rem;
+  width: 250px;
+  background-color: #343a40;
+}
+
+label {
+  color: white;
+  margin: 1rem 0rem 1rem 0.7rem;
+}
+
+.visually-hidden {
+  margin-right: 2rem;
+}
+
+.formBtn {
+  margin: 1rem 0 1rem 4.5rem;
 }
