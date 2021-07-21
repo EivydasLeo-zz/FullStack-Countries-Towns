@@ -1,46 +1,27 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
   state = {};
   render() {
     return (
       <div className="navbar-container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="#">
-            Navbar
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <Link className="navbar-brand" to="/">
+            Home
+          </Link>
+
+          <div className="collapse navbar-collapse d-flex justify-content-around" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item active">
-                <a className="nav-link" href="#">
-                  Home <span className="sr-only">(current)</span>
-                </a>
+              <li className="nav-item  pr-1 pl-1">
+                <Link className="nav-link" to="new_country_town">
+                  Create New Country or Town
+                </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Features
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Pricing
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="#" tabIndex={-1} aria-disabled="true">
-                  Disabled
-                </a>
+              <li className="nav-item pr-1 pl-1">
+                <Link className="nav-link" to="/countries_towns">
+                  Country And Town List
+                </Link>
               </li>
             </ul>
           </div>
