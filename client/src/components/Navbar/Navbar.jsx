@@ -14,7 +14,7 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse d-flex justify-content-around" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item  pr-1 pl-1">
-                <Link className="nav-link" to="new_country_town">
+                <Link className="nav-link" to="/new_place">
                   Create New Country or Town
                 </Link>
               </li>
