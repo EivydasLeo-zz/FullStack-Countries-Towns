@@ -4,10 +4,10 @@ class NewPlaces extends Component {
   state = {};
   render() {
     return (
-      <div className="NewPlaces__Container">
+      <div className="NewPlaces__Container ">
         <form className="row row-cols-lg-auto g-3 align-items-center">
           <div className="col-12">
-            <label className="visually-hsidden">Title</label>
+            <label className="visually-hsidden">Country or Town Title</label>
             <div className="input-group">
               <input type="text" className="form-control" placeholder="Title" />
             </div>
@@ -31,7 +31,7 @@ class NewPlaces extends Component {
             </select>
           </div>
           <div className="col-12">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-secondary formBtn">
               Submit
             </button>
           </div>

@@ -13,7 +13,7 @@ class App extends Component {
         <div className="main-container">
           <Switch>
             <Route path="/new_place" component={NewPlaces}></Route>
-            <Route path="/new_place_list" component={NewPlacesList}></Route>
+            <Route path="/places" component={NewPlacesList}></Route>
           </Switch>
         </div>
         ;

@@ -19,7 +19,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item pr-1 pl-1">
-                <Link className="nav-link" to="/countries_towns">
+                <Link className="nav-link" to="/places">
                   Country And Town List
                 </Link>
               </li>

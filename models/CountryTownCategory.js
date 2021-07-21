@@ -19,7 +19,7 @@ const CountryTownSchema = new Schema(
       type: Number,
       required: true,
     },
-    tipe: {
+    preference: {
       type: String,
       required: true,
     },
