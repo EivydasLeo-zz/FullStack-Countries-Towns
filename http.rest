@@ -1,2 +1,12 @@
 GET  http://localhost:4000/
 
+
+###
+POST http://localhost:4000/country_town/new
+Content-Type: application/json
+
+{
+    "title": "Lithuania"    
+    
+}
+

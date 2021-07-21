@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const CountryTownCategory = require('./models/CountryTownCategory');
 
 const app = express();
 
@@ -17,9 +18,26 @@ mongoose
 
 // MIddleware
 app.use(morgan('dev'));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.status(200).json(`Serveris veikia an port ${PORT}`);
+});
+
+app.post('/country_town/new', (req, res) => {
+  console.log(req.body);
+
+  const newPlace = new CountryTownCategory({
+    title: 'Chile',
+    continent: 'Sounth America',
+    population: 18000000,
+    tipe: 'country',
+  });
+
+  newPlace
+    .save()
+    .then((result) => res.json(result))
+    .catch((err) => console.log(err));
 });
 
 app.listen(PORT, console.log(`Back end online on port ${PORT}`));
