@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getPlaces } from './../utils/requests';
+import { Link } from 'react-router-dom';
 
 class NewPlacesList extends Component {
   constructor(props) {
@@ -21,26 +22,22 @@ class NewPlacesList extends Component {
   render() {
     return (
       <div className="newPlacesList-container">
-        <table className="table table-bordered table-dark">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Continent</th>
-              <th>Population</th>
-              <th>Preference</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map(({ _id, title, continent, population, preference }) => (
-              <tr key={_id}>
-                <td>{title}</td>
-                <td>{continent}</td>
-                <td>{population}</td>
-                <td>{preference}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {this.state.data.map(({ _id, title, continent, population, preference }) => (
+          <div key={_id} className="card bg-dark cardPlaces ">
+            <div className="card-body">
+              <h5 className="card-title ">{title}</h5>
+              <h6 className="card-subtitle mb-2 ">Continent: {continent}</h6>
+              <h6 className="card-subtitle mb-2 ">Population: {population}</h6>
+              <h6 className="card-subtitle mb-2 ">Preference: {preference}</h6>
+              <Link to="#" className="btn btn-warning">
+                Edit
+              </Link>
+              <Link to="#" className="btn btn-danger">
+                Delete
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
     );
   }
