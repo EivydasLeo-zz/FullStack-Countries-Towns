@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { Route, Switch } from 'react-router';
-import NewPlaces from './components/pages/NewPlaces';
+import NewPlace from './components/pages/NewPlace';
 import NewPlacesList from './components/pages/NewPlacesList';
 class App extends Component {
   state = {};
@@ -12,11 +12,10 @@ class App extends Component {
         <Navbar />
         <div className="main-container">
           <Switch>
-            <Route path="/new_place" component={NewPlaces}></Route>
+            <Route path="/new_place" component={NewPlace}></Route>
             <Route path="/places" component={NewPlacesList}></Route>
           </Switch>
         </div>
-        ;
       </div>
     );
   }

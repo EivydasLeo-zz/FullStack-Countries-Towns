@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const CountryTownCategory = require('./models/CountryTownCategory');
+const CountryTown = require('./models/CountryTownCategory');
 
 const app = express();
 
@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 // app.get gauti listus
 app.get('/places', async (req, res) => {
   try {
-    const places = await CountryTownCategory.find();
+    const places = await CountryTown.find();
     res.json(places);
   } catch (err) {
     res.status(500).json(err);
@@ -40,12 +40,7 @@ app.get('/places', async (req, res) => {
 app.post('/places/new', (req, res) => {
   console.log(req.body);
 
-  const newPlace = new CountryTownCategory({
-    title: 'Sydney',
-    continent: 'Australia',
-    population: 5.3,
-    preference: 'Country',
-  });
+  const newPlace = new CountryTown(req.body);
 
   newPlace
     .save()

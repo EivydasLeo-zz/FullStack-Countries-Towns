@@ -25,7 +25,7 @@ li:hover {
 
 /* NewPlaces */
 
-.NewPlaces__Container {
+.NewPlace__Container {
   display: flex;
   justify-content: center;
 }
@@ -48,4 +48,29 @@ label {
 
 .formBtn {
   margin: 1rem 0 1rem 4.5rem;
+}
+
+/* NewPlacesList */
+
+.newPlacesList-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+.card-body {
+  text-align: center;
+  color: white;
+}
+
+.card-body > h6 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-body > a {
+  margin: 1rem 0.5rem 0.5rem;
+}
+
+.cardPlaces {
+  margin: 0 1rem 0 1rem;
 }
