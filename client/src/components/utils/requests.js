@@ -36,3 +36,15 @@ export const postNewPlace = async (obj) => {
     console.log('Error occured: ', err);
   }
 };
+
+export const deleteOnePlace = async (id) => {
+  try {
+    const resp = await fetch(`${placesBaseUrl}/delete/${id}`, {
+      method: 'DELETE',
+      ...reqOptions,
+    });
+    await resp.json();
+  } catch (err) {
+    console.log('Delete user failed.. ', err);
+  }
+};

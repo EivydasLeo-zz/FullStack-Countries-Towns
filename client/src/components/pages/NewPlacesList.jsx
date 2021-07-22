@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getPlaces } from './../utils/requests';
-import { Link } from 'react-router-dom';
+import { deleteOnePlace } from './../utils/requests';
 
 class NewPlacesList extends Component {
   constructor(props) {
@@ -19,6 +19,11 @@ class NewPlacesList extends Component {
     this.setState({ data: places });
   }
 
+  async handleDelete(userId) {
+    await deleteOnePlace(userId);
+    this.getPlaces();
+  }
+
   render() {
     return (
       <div className="newPlacesList-container">
@@ -29,12 +34,10 @@ class NewPlacesList extends Component {
               <h6 className="card-subtitle mb-2 ">Continent: {continent}</h6>
               <h6 className="card-subtitle mb-2 ">Population: {population}</h6>
               <h6 className="card-subtitle mb-2 ">Preference: {preference}</h6>
-              <Link to="#" className="btn btn-warning">
-                Edit
-              </Link>
-              <Link to="#" className="btn btn-danger">
+              <button className="btn btn-warning">Edit</button>
+              <button onClick={() => this.handleDelete(_id)} className="btn btn-danger">
                 Delete
-              </Link>
+              </button>
             </div>
           </div>
         ))}

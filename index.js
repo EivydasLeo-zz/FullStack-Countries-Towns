@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   res.status(200).json(`Serveris veikia an port ${PORT}`);
 });
 
-// app.get gauti listus
+// get places
 app.get('/places', async (req, res) => {
   try {
     const places = await CountryTown.find();
@@ -48,4 +48,10 @@ app.post('/places/new', (req, res) => {
     .catch((err) => console.log(err));
 });
 
+// delete place
+
+app.delete('/places/delete/:id', async (req, res) => {
+  await CountryTown.findOneAndDelete({ _id: req.params.id });
+  res.send({ success: true, msg: `Place has been deleted.` });
+});
 app.listen(PORT, console.log(`Back end online on port ${PORT}`));
