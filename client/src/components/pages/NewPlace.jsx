@@ -72,10 +72,10 @@ class NewPlace extends Component {
             </div>
           </div>
           <div className="col-12">
-            <label className="visually-hidden" htmlFor="inlineFormSelectPref">
+            <label className="visually-hidden" htmlFor="preference">
               Preference:
             </label>
-            <select onChange={this.handlePreference} className="form-select" id="inlineFormSelectPref">
+            <select name="preference" onChange={this.handlePreference} className="form-select" id="preference">
               <option>Choose...</option>
               <option value="Country">Country</option>
               <option value="Town">Town</option>

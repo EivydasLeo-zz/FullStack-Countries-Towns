@@ -54,7 +54,7 @@ label {
 
 .newPlacesList-container {
   display: flex;
-  margin: 0 auto;
+  justify-content: center;
 }
 
 .card-body {
@@ -72,5 +72,15 @@ label {
 }
 
 .cardPlaces {
+  margin: 0 1rem 0 1rem;
+}
+
+.filteredBtn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.filteredBtn button {
   margin: 0 1rem 0 1rem;
 }
