@@ -55,3 +55,19 @@ app.delete('/places/delete/:id', async (req, res) => {
   res.send({ success: true, msg: `Place has been deleted.` });
 });
 app.listen(PORT, console.log(`Back end online on port ${PORT}`));
+
+// edit place
+
+app.put('/places/edit/:id', async (req, res) => {
+  const { title, continent, population, preference } = req.body;
+  await CountryTown.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      title,
+      continent,
+      population,
+      preference,
+    }
+  );
+  res.send({ success: true, msg: `Place ${title} has been updated.` });
+});

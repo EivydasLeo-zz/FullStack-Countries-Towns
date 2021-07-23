@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getPlaces } from './../utils/requests';
+import { editOnePlace, getPlaces } from './../utils/requests';
 import { deleteOnePlace } from './../utils/requests';
 
 class NewPlacesList extends Component {
@@ -14,13 +14,18 @@ class NewPlacesList extends Component {
     this.getAllPlaces();
   }
 
-  getAllPlaces = async () => {
+  async getAllPlaces() {
     const places = await getPlaces();
     this.setState({ data: places });
-  };
+  }
 
   async handleDelete(userId) {
     await deleteOnePlace(userId);
+    this.getAllPlaces();
+  }
+
+  async handleEdit(userId, newBody) {
+    await editOnePlace(userId, newBody);
     this.getAllPlaces();
   }
 
@@ -41,7 +46,7 @@ class NewPlacesList extends Component {
           <button onClick={() => this.filterOneKind('Country')} className="btn btn-success">
             Countries
           </button>
-          <button onClick={this.getAllPlaces} className="btn btn-info ">
+          <button onClick={() => this.getAllPlaces()} className="btn btn-info ">
             All Places
           </button>
         </div>
@@ -53,7 +58,9 @@ class NewPlacesList extends Component {
                 <h6 className="card-subtitle mb-2 ">Continent: {continent}</h6>
                 <h6 className="card-subtitle mb-2 ">Population: {population}</h6>
                 <h6 className="card-subtitle mb-2 ">Preference: {preference}</h6>
-                <button className="btn btn-warning">Edit</button>
+                <button onClick={() => this.handleEdit(_id)} className="btn btn-warning">
+                  Edit
+                </button>
                 <button onClick={() => this.handleDelete(_id)} className="btn btn-danger">
                   Delete
                 </button>

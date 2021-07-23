@@ -12,7 +12,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "server": "nodemon index.js"
+    "start": "nodemon server.js",
+    "react": "npm start --prefix client"
   },
   "author": "Eivydas Leonavicius",
   "license": "MIT"

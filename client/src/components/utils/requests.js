@@ -48,3 +48,12 @@ export const deleteOnePlace = async (id) => {
     console.log('Delete user failed.. ', err);
   }
 };
+
+export const editOnePlace = async (id, newBody) => {
+  const resp = await fetch(`${placesBaseUrl}/edit/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(newBody),
+    ...reqOptions,
+  });
+  await resp.json();
+};
